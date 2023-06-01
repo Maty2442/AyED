@@ -15,7 +15,7 @@ pi+= (pow((-1),i))/(2*i+1);
 }
 pi*=4;
 cout.precision(7);
-cout<<"El numero Pi es mas o menos "<<pi<<endl;
+cout<<"El numero Pi es aproximadamente: "<<pi<<endl;
 
 
 return 0;
