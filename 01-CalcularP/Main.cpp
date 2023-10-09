@@ -1,25 +1,26 @@
 #include <iostream>
-#include <math.h>
-/* Comentario en más
-de una línea */
-int main()
-{
-// cout y endl están declaradas en iostream
- using namespace std; // no hace falta poner std:: as ique nda usa esto que s mas facil
- int n,i;
- double pi{0};
-n=900000;
+#include <cmath>
+using namespace std;
+int main() {
+    double pi_actual ={};
+    double aux = {};
+    double termino = {1.0};
+    int denominador = {1};
+    int signo = {1};
 
-for(i=0;i<n;++i){
-pi+= (pow((-1),i))/(2*i+1);
+    do {
+        aux = pi_actual;
+        pi_actual += signo * termino;
+        denominador += 2;
+        signo *= -1;
+        termino = 1.0 / denominador;
+    } while (fabs(pi_actual - aux) >= 1e-7);
+
+    double pi = 4 * pi_actual;
+
+
+    cout.precision(7);
+    cout << "Valor estimado de Pi con 7 dígitos de precisión: "<< pi << "\n";
+
+    return 0;
 }
-pi*=4;
-cout.precision(7);
-cout<<"El numero Pi es aproximadamente: "<<pi<<endl;
-
-
-return 0;
-
-
-}
-
